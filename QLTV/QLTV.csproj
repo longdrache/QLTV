@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4210FE85-6D31-4949-8462-B5B979C65258}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QLTV</RootNamespace>
+    <AssemblyName>QLTV</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form\Author\AddAuthorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Author\AddAuthorForm.Designer.cs">
+      <DependentUpon>AddAuthorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Author\ChangeNameAuthorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Author\ChangeNameAuthorForm.Designer.cs">
+      <DependentUpon>ChangeNameAuthorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Book\ChooseBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Book\ChooseBookForm.Designer.cs">
+      <DependentUpon>ChooseBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Book\EditBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Book\EditBookForm.Designer.cs">
+      <DependentUpon>EditBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Author\UpdateAuthorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Author\UpdateAuthorForm.Designer.cs">
+      <DependentUpon>UpdateAuthorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Book\AddBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Book\AddBookForm.Designer.cs">
+      <DependentUpon>AddBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorUpdateLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AuthorUpdateLayout.Designer.cs">
+      <DependentUpon>AuthorUpdateLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\BookUpdateLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\BookUpdateLayout.Designer.cs">
+      <DependentUpon>BookUpdateLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Layout\GenerateUserLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\GenerateUserLayout.Designer.cs">
+      <DependentUpon>GenerateUserLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\IssueBookLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\IssueBookLayout.Designer.cs">
+      <DependentUpon>IssueBookLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Issue\IssueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Issue\IssueForm.Designer.cs">
+      <DependentUpon>IssueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Issue\LookBorrowedBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Issue\LookBorrowedBook.Designer.cs">
+      <DependentUpon>LookBorrowedBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\MainLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\MainLayout.Designer.cs">
+      <DependentUpon>MainLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Form\Return\LookBorrowedBookOfStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Return\LookBorrowedBookOfStudent.Designer.cs">
+      <DependentUpon>LookBorrowedBookOfStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ReturnBookLayout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Layout\ReturnBookLayout.Designer.cs">
+      <DependentUpon>ReturnBookLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Student\ChooseStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Student\ChooseStudentForm.Designer.cs">
+      <DependentUpon>ChooseStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Book\RecoverBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Book\RecoverBookForm.Designer.cs">
+      <DependentUpon>RecoverBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Author\RecoverAuthorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Author\RecoverAuthorForm.Designer.cs">
+      <DependentUpon>RecoverAuthorForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\Author\AddAuthorForm.resx">
+      <DependentUpon>AddAuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Author\ChangeNameAuthorForm.resx">
+      <DependentUpon>ChangeNameAuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Author\RecoverAuthorForm.resx">
+      <DependentUpon>RecoverAuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Book\ChooseBookForm.resx">
+      <DependentUpon>ChooseBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Book\EditBookForm.resx">
+      <DependentUpon>EditBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Author\UpdateAuthorForm.resx">
+      <DependentUpon>UpdateAuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Book\AddBookForm.resx">
+      <DependentUpon>AddBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuthorUpdateLayout.resx">
+      <DependentUpon>AuthorUpdateLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Book\RecoverBookForm.resx">
+      <DependentUpon>RecoverBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\BookUpdateLayout.resx">
+      <DependentUpon>BookUpdateLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\GenerateUserLayout.resx">
+      <DependentUpon>GenerateUserLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\IssueBookLayout.resx">
+      <DependentUpon>IssueBookLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Issue\IssueForm.resx">
+      <DependentUpon>IssueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Issue\LookBorrowedBook.resx">
+      <DependentUpon>LookBorrowedBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\MainLayout.resx">
+      <DependentUpon>MainLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Return\LookBorrowedBookOfStudent.resx">
+      <DependentUpon>LookBorrowedBookOfStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layout\ReturnBookLayout.resx">
+      <DependentUpon>ReturnBookLayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Student\ChooseStudentForm.resx">
+      <DependentUpon>ChooseStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryManagerBussiness\LibraryManagerBusinessLogic.csproj">
+      <Project>{F5D13ED8-ECE4-4549-8F43-BCEBBEB9B47F}</Project>
+      <Name>LibraryManagerBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibraryManagerDataAccess\LibraryManagerDataAccess.csproj">
+      <Project>{8B459A48-35B4-4F1E-85A3-5EC6243C5D2E}</Project>
+      <Name>LibraryManagerDataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-book-90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\books.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\university.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-name-60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wave.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icons8-book-70.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
