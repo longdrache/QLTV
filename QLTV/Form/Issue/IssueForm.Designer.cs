@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IssueForm));
             this.btn_chooseSt = new System.Windows.Forms.Button();
             this.txt_bookName = new System.Windows.Forms.TextBox();
             this.btn_chooseBook = new System.Windows.Forms.Button();
@@ -188,10 +189,11 @@
             this.Controls.Add(this.dtp_issue);
             this.Controls.Add(this.label9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "IssueForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IssueForm";
+            this.Text = "Cho mượn";
             this.ResumeLayout(false);
             this.PerformLayout();
 

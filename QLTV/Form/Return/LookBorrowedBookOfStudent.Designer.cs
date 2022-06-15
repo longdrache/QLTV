@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LookBorrowedBookOfStudent));
             this.button1 = new System.Windows.Forms.Button();
             this.btn_chooseSt = new System.Windows.Forms.Button();
             this.txt_studentId = new System.Windows.Forms.TextBox();
@@ -82,9 +83,11 @@
             this.Controls.Add(this.btn_chooseSt);
             this.Controls.Add(this.txt_studentId);
             this.Controls.Add(this.label2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "LookBorrowedBookOfStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LookBorrowedBookOfStudent";
+            this.Text = "Xem sách mượn ";
             this.ResumeLayout(false);
             this.PerformLayout();
 

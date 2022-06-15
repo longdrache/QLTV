@@ -155,11 +155,13 @@ namespace QLTV
                             xlw.Worksheets.Add(exportData, "Book");
                             xlw.SaveAs(sfd.FileName);
                         }
-                        MessageBox.Show("ok");
+                        MessageBox.Show("Xuất thành công!", "Xuất file excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Xuất thất bại!", "Xuất file excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(ex.Message, "Lý do", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     }
                 }
 

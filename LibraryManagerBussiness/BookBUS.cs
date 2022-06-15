@@ -141,9 +141,9 @@ namespace LibraryManagerBussiness
                     s = false;
 
                 }
-                catch (System.Exception)
+                catch (System.Exception ec)
                 {
-                    err = "Database disconnect!";
+                    err = ec.Message;
                     s = false;
                 }
 

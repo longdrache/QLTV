@@ -7,7 +7,7 @@ namespace QLTV
     {
         private Role? _role;
         public static string UserName;
-        private bool _isClosed = false; //prevent double messagebox 
+
 
         public MainForm(string userName, Role role)
         {
@@ -34,7 +34,6 @@ namespace QLTV
 
             if (result == DialogResult.Yes)
             {
-                _isClosed = true;
                 Application.Exit();
 
             }
@@ -145,18 +144,7 @@ namespace QLTV
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_isClosed == false)
-            {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.No)
-                {
-                    e.Cancel = true;
-                    return;
-                }
-            }
-            _isClosed = true;
             Application.Exit();
-
         }
     }
 }

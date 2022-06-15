@@ -53,11 +53,29 @@ namespace QLTV
                 MessageBox.Show("Tên không được để trống!", "Tên sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (!Char.IsNumber(cb_edition.Text,0))
+            if (txt_Isbn.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Giá trị không hợp lệ", "ISBN", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+                return false;
+            }
+            if (cb_author.Text.Length==0)
             {
                 MessageBox.Show("Giá trị không hợp lệ", "Tái bản", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
              
+            }
+            if (cb_edition.Text.Trim().Length==0)
+            {
+                MessageBox.Show("Giá trị không hợp lệ", "Tái bản", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+
+            }
+            if (!Char.IsNumber(cb_edition.Text, 0))
+            {
+                MessageBox.Show("Giá trị không hợp lệ", "Tái bản", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+
             }
             if (cb_author.SelectedValue == null)
             {

@@ -64,7 +64,7 @@ namespace QLTV
                 MessageBox.Show("Tên không được để trống!", "Tên sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (!Char.IsNumber(cb_edition.Text, 0))
+            if (!Char.IsNumber(cb_edition.Text, 0) && cb_author.Text.Length == 0)
             {
                 MessageBox.Show("Giá trị không hợp lệ", "Tái bản", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;

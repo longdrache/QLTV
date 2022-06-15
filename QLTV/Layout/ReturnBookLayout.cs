@@ -48,7 +48,7 @@ namespace QLTV
             if (isStart)
                 pageNumber = 1;
 
-            returnPageList = _returnBUS.GetSearchAllReturn(txttimkiem.Text);
+            returnPageList = _returnBUS.GetSearchAllReturn(txttimkiem.Text,pageNumber);
             return_gv.DataSource = returnPageList.ToList();
             btn_prev.Enabled = returnPageList.HasPreviousPage;
             btn_next.Enabled = returnPageList.HasNextPage;

@@ -1,4 +1,5 @@
 ﻿using LibraryManagerDataAccess.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
 namespace LibraryManagerDataAccess.Maps
@@ -7,6 +8,7 @@ namespace LibraryManagerDataAccess.Maps
     {
         public StudentMap()
         {
+            Property(st => st.StudentId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None); 
             Property(st => st.FullName)
                .IsRequired()
                .HasMaxLength(60);

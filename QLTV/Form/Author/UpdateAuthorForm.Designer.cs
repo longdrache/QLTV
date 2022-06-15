@@ -76,26 +76,26 @@
             this.delete_r_menu,
             this.refresh_r_menu});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(301, 162);
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 118);
             // 
             // edit_r_menu
             // 
             this.edit_r_menu.Name = "edit_r_menu";
-            this.edit_r_menu.Size = new System.Drawing.Size(300, 38);
+            this.edit_r_menu.Size = new System.Drawing.Size(180, 38);
             this.edit_r_menu.Text = "Sửa";
             this.edit_r_menu.Click += new System.EventHandler(this.edit_r_menu_Click);
             // 
             // delete_r_menu
             // 
             this.delete_r_menu.Name = "delete_r_menu";
-            this.delete_r_menu.Size = new System.Drawing.Size(300, 38);
+            this.delete_r_menu.Size = new System.Drawing.Size(180, 38);
             this.delete_r_menu.Text = "Xóa";
             this.delete_r_menu.Click += new System.EventHandler(this.delete_r_menu_Click);
             // 
             // refresh_r_menu
             // 
             this.refresh_r_menu.Name = "refresh_r_menu";
-            this.refresh_r_menu.Size = new System.Drawing.Size(300, 38);
+            this.refresh_r_menu.Size = new System.Drawing.Size(180, 38);
             this.refresh_r_menu.Text = "Làm mới";
             this.refresh_r_menu.Click += new System.EventHandler(this.refresh_r_menu_Click);
             // 
@@ -160,11 +160,12 @@
             this.ClientSize = new System.Drawing.Size(668, 641);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.author_list);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.Name = "UpdateAuthorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddAuthorForm";
+            this.Text = "Thêm tác giả";
             this.Load += new System.EventHandler(this.UpdateAuthorForm_Load);
             this.contextMenuStrip.ResumeLayout(false);
             this.menuStrip.ResumeLayout(false);

@@ -80,5 +80,10 @@ namespace QLTV
         {
             GetDataUser(true);
         }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetDataUser(true);
+        }
     }
 }

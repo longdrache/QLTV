@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeNameAuthorForm));
             this.btn_edit = new System.Windows.Forms.Button();
             this.txt_author = new System.Windows.Forms.TextBox();
             this.lbl_authorName = new System.Windows.Forms.Label();
@@ -70,9 +71,11 @@
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.txt_author);
             this.Controls.Add(this.lbl_authorName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ChangeNameAuthorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ChangeNameAuthorForm";
+            this.Text = "Đổi tên tác giả";
             this.ResumeLayout(false);
             this.PerformLayout();
 

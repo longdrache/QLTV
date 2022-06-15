@@ -31,7 +31,7 @@ namespace QLTV.Student
             if (isStart)
                 pageNumber = 1;
 
-            studentPageList = _studentBUS.GetSearchPageAllStudents(txt_search.Text);
+            studentPageList = _studentBUS.GetSearchPageAllStudents(txt_search.Text,pageNumber);
             btn_prev.Enabled = studentPageList.HasPreviousPage;
             btn_next.Enabled = studentPageList.HasNextPage;
             lbl_PageNumber.Text = String.Format("Page {0}/{1}", pageNumber, studentPageList.PageCount);
@@ -46,7 +46,7 @@ namespace QLTV.Student
             stgv.Columns[3].HeaderText = "Giới tính";
             stgv.Columns[4].HeaderText = "Khoa";
             stgv.Columns[5].HeaderText = "Tình trạng";
-
+            stgv.RowHeadersWidth = 25;
             stgv.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
             stgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
         }

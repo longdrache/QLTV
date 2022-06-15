@@ -35,6 +35,7 @@ namespace QLTV
             new IssueForm().ShowDialog();
         }
 
+
         private void IssueBookLayout_Load(object sender, EventArgs e)
         {
             GetDataIssue(true);
@@ -44,7 +45,7 @@ namespace QLTV
         {
             if (isStart)
                 pageNumber = 1;
-            returnPageList = _issueBUS.GetSearchAllIssues(txttimkiem.Text);
+            returnPageList = _issueBUS.GetSearchAllIssues(txttimkiem.Text,pageNumber);
             issue_gv.DataSource = returnPageList.ToList();
             btn_prev.Enabled = returnPageList.HasPreviousPage;
             btn_next.Enabled = returnPageList.HasNextPage;
