@@ -18,7 +18,14 @@ namespace QLTV
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
-            ChangeNameAuthor();
+            if (txt_author.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Xin vui lòng điền tên tác giả", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ChangeNameAuthor();
+            }
         }
 
         private void ChangeNameAuthor()
@@ -28,7 +35,6 @@ namespace QLTV
             author.AuthorName = txt_author.Text.Trim();
             string err = string.Empty;
             bool IsEditSuc = _authorBUS.UpdateAuthor(ref err, author);
-
 
             if (IsEditSuc)
             {

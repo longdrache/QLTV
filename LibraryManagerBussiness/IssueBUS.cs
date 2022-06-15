@@ -1,6 +1,7 @@
 ﻿using LibraryManagerBussiness.VOs;
 using LibraryManagerDataAccess.Models;
 using LibraryManagerDataAccess.Repositories;
+using PagedList;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,50 +15,85 @@ namespace LibraryManagerBussiness
         {
         }
 
-        public IList GetAllIssues()
+        public IList<IssueVO> GetAllIssues()
         {
-            IList issues;
+            IList<IssueVO> issues;
 
             using (UnitOfWork uow = new UnitOfWork())
             {
                 IEnumerable<Issue> list = uow.IssueRepository.GetAll().ToList();
-                var newIssueList = from issue in list
-                                   select new
-                                   {
-                                       StudentId = issue.Student.StudentId,
-                                       StudentName = issue.Student.FullName,
-                                       IssueDate = issue.DateIssue,
-                                       ReturnDate = issue.DateExpirary,
-                                       BookId = issue.Book.BookId,
-                                       bookName = issue.Book.Title
-                                   };
+                IEnumerable<IssueVO> convertIssueList = from issue in list
+                                                        select new IssueVO
+                                                        {
+                                                            IssueId = issue.IssueId,
+                                                            StudentId = issue.Student.StudentId,
+                                                            StudentName = issue.Student.FullName,
+                                                            IssueDate = issue.DateIssue,
+                                                            ReturnDate = issue.DateExpirary,
+                                                            BookId = issue.Book.BookId,
+                                                            BookName = issue.Book.Title
+                                                        };
 
 
-                issues = newIssueList.ToList();
+                issues = convertIssueList.ToList();
             }
 
             return issues;
         }
-        public IList GetAllIssuesByStudentId(int studentId)
+        public IPagedList<IssueVO> GetSearchAllIssues(string keyword, int pageNumber = 1, int pageSize = 15)
         {
-            IList issues;
+            IList<IssueVO> issues;
+
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                IEnumerable<Issue> list = uow.IssueRepository.GetAll(iss =>
+                  iss.Student.FullName.Contains(keyword) ||
+                iss.StudentId.ToString().Contains(keyword) ||
+                iss.IssueId.ToString().Contains(keyword) ||
+                iss.BookId.ToString().Contains(keyword) ||
+                iss.Book.Title.Contains(keyword) ||
+                iss.DateExpirary.ToString().Contains(keyword) ||
+                iss.DateIssue.ToString().Contains(keyword)
+                ).ToList();
+                IEnumerable<IssueVO> convertIssueList = from issue in list
+                                                        select new IssueVO
+                                                        {
+                                                            IssueId = issue.IssueId,
+                                                            StudentId = issue.Student.StudentId,
+                                                            StudentName = issue.Student.FullName,
+                                                            IssueDate = issue.DateIssue,
+                                                            ReturnDate = issue.DateExpirary,
+                                                            BookId = issue.Book.BookId,
+                                                            BookName = issue.Book.Title
+                                                        };
+
+
+                issues = convertIssueList.ToList();
+            }
+
+            return issues.ToPagedList(pageNumber,pageSize);
+        }
+        public IList<IssueVO> GetAllIssuesByStudentId(int studentId)
+        {
+            IList<IssueVO> issues;
 
             using (UnitOfWork uow = new UnitOfWork())
             {
                 IEnumerable<Issue> list = uow.IssueRepository.GetAll(issue => issue.StudentId == studentId).ToList();
-                var newIssueList = from issue in list
-                                   select new
-                                   {
-                                       StudentId = issue.Student.StudentId,
-                                       StudentName = issue.Student.FullName,
-                                       IssueDate = issue.DateIssue,
-                                       ReturnDate = issue.DateExpirary,
-                                       BookId = issue.Book.BookId,
-                                       bookName = issue.Book.Title
-                                   };
+                IEnumerable<IssueVO> convertIssueList = from issue in list
+                                                        select new IssueVO
+                                                        {
+                                                            IssueId = issue.IssueId,
+                                                            StudentId = issue.Student.StudentId,
+                                                            StudentName = issue.Student.FullName,
+                                                            IssueDate = issue.DateIssue,
+                                                            ReturnDate = issue.DateExpirary,
+                                                            BookId = issue.Book.BookId,
+                                                            BookName = issue.Book.Title
+                                                        };
 
 
-                issues = newIssueList.ToList();
+                issues = convertIssueList.ToList();
             }
 
             return issues;

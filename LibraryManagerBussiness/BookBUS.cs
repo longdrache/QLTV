@@ -1,10 +1,12 @@
-﻿using LibraryManagerBussiness.VOs;
+﻿using LibraryManagerBussiness.Common;
+using LibraryManagerBussiness.VOs;
 using LibraryManagerDataAccess.Models;
 using LibraryManagerDataAccess.Repositories;
+using PagedList;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-
+using System.Transactions;
 namespace LibraryManagerBussiness
 {
     public partial class BookBUS
@@ -37,6 +39,56 @@ namespace LibraryManagerBussiness
 
             return books;
         }
+        public IPagedList<BookVO> GetPageList(int pageNumber = 1, int pageSize = 15)
+        {
+            IList<BookVO> books;
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                IEnumerable<Book> list = uow.BookRepository.GetAll(b => b.IsDeleted == false).ToList();
+                IEnumerable<BookVO> bookConvert = from book in list
+                                                  select new BookVO
+                                                  {
+                                                      BookId = book.BookId,
+                                                      Title = book.Title,
+                                                      ISBN = book.ISBN,
+                                                      AuthorName = book.Author.AuthorName,
+                                                      AuthorId = book.AuthorId,
+                                                      Description = book.Description,
+                                                      Edition = book.Book_Edition
+                                                  };
+                books = bookConvert.ToList();
+            }
+            return books.ToPagedList(pageNumber, pageSize);
+
+        }
+        public IPagedList<BookVO> GetSearchPageList(string keyword, int pageNumber = 1, int pageSize = 15)
+        {
+            IList<BookVO> books;
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                IEnumerable<Book> list = uow.BookRepository.GetAll(b =>
+                (b.Title.Contains(keyword) ||
+                b.BookId.ToString().Contains(keyword) ||
+                b.Author.AuthorName.Contains(keyword) ||
+                b.ISBN.Contains(keyword) ||
+                b.Description.Contains(keyword)) && b.IsDeleted == false
+                ).ToList();
+                IEnumerable<BookVO> bookConvert = from book in list
+                                                  select new BookVO
+                                                  {
+                                                      BookId = book.BookId,
+                                                      Title = book.Title,
+                                                      ISBN = book.ISBN,
+                                                      AuthorName = book.Author.AuthorName,
+                                                      AuthorId = book.AuthorId,
+                                                      Description = book.Description,
+                                                      Edition = book.Book_Edition
+                                                  };
+                books = bookConvert.ToList();
+            }
+            return books.ToPagedList(pageNumber, pageSize);
+
+        }
         public IList<BookVO> GetAllDeletedBooks()
         {
             IList<BookVO> books;
@@ -65,27 +117,37 @@ namespace LibraryManagerBussiness
         public bool AddBook(ref string err, BookVO bookVO)
         {
             bool s;
-            try
+            using (TransactionScope scope = Utility.GetTransactionScope())
             {
-                using (UnitOfWork uow = new UnitOfWork())
+                try
                 {
-                    Book book = new Book();
-                    book.ISBN = bookVO.ISBN;
-                    book.AuthorId = bookVO.AuthorId;
-                    book.Title = bookVO.Title;
-                    book.Description = bookVO.Description;
-                    book.Book_Edition = bookVO.Edition;
-                    uow.BookRepository.Add(book);
-                    uow.SaveChanges();
+                    using (UnitOfWork uow = new UnitOfWork())
+                    {
+                        Book book = new Book();
+                        book.ISBN = bookVO.ISBN;
+                        book.AuthorId = bookVO.AuthorId;
+                        book.Title = bookVO.Title;
+                        book.Description = bookVO.Description;
+                        book.Book_Edition = bookVO.Edition;
+                        uow.BookRepository.Add(book);
+                        uow.SaveChanges();
+                        scope.Complete();
+                    }
+                    s = true;
                 }
-                s = true;
-            }
-            catch (SqlException ex)
-            {
-                err = ex.Message;
-                s = false;
-            }
+                catch (SqlException ex)
+                {
+                    err = ex.Message;
+                    s = false;
 
+                }
+                catch (System.Exception)
+                {
+                    err = "Database disconnect!";
+                    s = false;
+                }
+
+            }
             return s;
         }
         public bool RemoveBook(ref string err, int bookId)

@@ -31,8 +31,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bookgv = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_search = new System.Windows.Forms.TextBox();
             this.btn_ok = new System.Windows.Forms.Button();
+            this.lbl_PageNumber = new System.Windows.Forms.Label();
+            this.btn_next = new System.Windows.Forms.Button();
+            this.btn_prev = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,9 +67,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.bookgv.DefaultCellStyle = dataGridViewCellStyle2;
-            this.bookgv.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bookgv.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bookgv.Location = new System.Drawing.Point(0, 272);
+            this.bookgv.Location = new System.Drawing.Point(-4, 244);
             this.bookgv.Margin = new System.Windows.Forms.Padding(0);
             this.bookgv.MultiSelect = false;
             this.bookgv.Name = "bookgv";
@@ -76,20 +78,20 @@
             this.bookgv.RowTemplate.Height = 50;
             this.bookgv.RowTemplate.ReadOnly = true;
             this.bookgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.bookgv.Size = new System.Drawing.Size(1968, 856);
+            this.bookgv.Size = new System.Drawing.Size(1976, 792);
             this.bookgv.StandardTab = true;
             this.bookgv.TabIndex = 24;
             this.bookgv.VirtualMode = true;
             this.bookgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.bookgv_CellDoubleClick);
             // 
-            // textBox1
+            // txt_search
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.textBox1.Location = new System.Drawing.Point(406, 124);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(867, 56);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.txt_search.Location = new System.Drawing.Point(406, 124);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(867, 56);
+            this.txt_search.TabIndex = 25;
+            this.txt_search.TextChanged += new System.EventHandler(this.txt_search_TextChanged);
             // 
             // btn_ok
             // 
@@ -102,14 +104,46 @@
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
+            // lbl_PageNumber
+            // 
+            this.lbl_PageNumber.AutoSize = true;
+            this.lbl_PageNumber.Location = new System.Drawing.Point(843, 1067);
+            this.lbl_PageNumber.Name = "lbl_PageNumber";
+            this.lbl_PageNumber.Size = new System.Drawing.Size(60, 25);
+            this.lbl_PageNumber.TabIndex = 30;
+            this.lbl_PageNumber.Text = "page";
+            // 
+            // btn_next
+            // 
+            this.btn_next.Location = new System.Drawing.Point(941, 1055);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(116, 48);
+            this.btn_next.TabIndex = 29;
+            this.btn_next.Text = ">";
+            this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            // 
+            // btn_prev
+            // 
+            this.btn_prev.Location = new System.Drawing.Point(690, 1055);
+            this.btn_prev.Name = "btn_prev";
+            this.btn_prev.Size = new System.Drawing.Size(135, 48);
+            this.btn_prev.TabIndex = 28;
+            this.btn_prev.Text = "<";
+            this.btn_prev.UseVisualStyleBackColor = true;
+            this.btn_prev.Click += new System.EventHandler(this.btn_prev_Click);
+            // 
             // ChooseBookForm
             // 
             this.AcceptButton = this.btn_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1968, 1128);
+            this.Controls.Add(this.lbl_PageNumber);
+            this.Controls.Add(this.btn_next);
+            this.Controls.Add(this.btn_prev);
             this.Controls.Add(this.btn_ok);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_search);
             this.Controls.Add(this.bookgv);
             this.MaximizeBox = false;
             this.Name = "ChooseBookForm";
@@ -125,7 +159,10 @@
         #endregion
 
         private System.Windows.Forms.DataGridView bookgv;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Button btn_ok;
+        private System.Windows.Forms.Label lbl_PageNumber;
+        private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.Button btn_prev;
     }
 }

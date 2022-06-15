@@ -27,7 +27,7 @@ namespace LibraryManagerDataAccess.Context
             modelBuilder.Configurations.Add(new ReturnMap());
             modelBuilder.Configurations.Add(new AuthorMap());
             modelBuilder.Configurations.Add(new DepartmentMap());
-
         }
+
     }
 }

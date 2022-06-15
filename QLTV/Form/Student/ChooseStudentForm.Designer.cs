@@ -33,6 +33,9 @@
             this.txt_search = new System.Windows.Forms.TextBox();
             this.stgv = new System.Windows.Forms.DataGridView();
             this.btn_ok = new System.Windows.Forms.Button();
+            this.lbl_PageNumber = new System.Windows.Forms.Label();
+            this.btn_next = new System.Windows.Forms.Button();
+            this.btn_prev = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,7 +43,7 @@
             // 
             this.txt_search.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.txt_search.Location = new System.Drawing.Point(389, 193);
+            this.txt_search.Location = new System.Drawing.Point(572, 141);
             this.txt_search.Name = "txt_search";
             this.txt_search.Size = new System.Drawing.Size(520, 56);
             this.txt_search.TabIndex = 28;
@@ -73,9 +76,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.stgv.DefaultCellStyle = dataGridViewCellStyle2;
-            this.stgv.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.stgv.EnableHeadersVisualStyles = false;
-            this.stgv.Location = new System.Drawing.Point(0, 302);
+            this.stgv.Location = new System.Drawing.Point(9, 235);
             this.stgv.Margin = new System.Windows.Forms.Padding(0);
             this.stgv.MultiSelect = false;
             this.stgv.Name = "stgv";
@@ -86,7 +88,7 @@
             this.stgv.RowTemplate.Height = 100;
             this.stgv.RowTemplate.ReadOnly = true;
             this.stgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.stgv.Size = new System.Drawing.Size(1762, 779);
+            this.stgv.Size = new System.Drawing.Size(2123, 792);
             this.stgv.TabIndex = 27;
             this.stgv.VirtualMode = true;
             this.stgv.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stgv_CellDoubleClick);
@@ -94,7 +96,7 @@
             // btn_ok
             // 
             this.btn_ok.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btn_ok.Location = new System.Drawing.Point(969, 182);
+            this.btn_ok.Location = new System.Drawing.Point(1163, 138);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(138, 76);
             this.btn_ok.TabIndex = 29;
@@ -102,12 +104,44 @@
             this.btn_ok.UseVisualStyleBackColor = true;
             this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
+            // lbl_PageNumber
+            // 
+            this.lbl_PageNumber.AutoSize = true;
+            this.lbl_PageNumber.Location = new System.Drawing.Point(914, 1066);
+            this.lbl_PageNumber.Name = "lbl_PageNumber";
+            this.lbl_PageNumber.Size = new System.Drawing.Size(60, 25);
+            this.lbl_PageNumber.TabIndex = 33;
+            this.lbl_PageNumber.Text = "page";
+            // 
+            // btn_next
+            // 
+            this.btn_next.Location = new System.Drawing.Point(1012, 1054);
+            this.btn_next.Name = "btn_next";
+            this.btn_next.Size = new System.Drawing.Size(116, 48);
+            this.btn_next.TabIndex = 32;
+            this.btn_next.Text = ">";
+            this.btn_next.UseVisualStyleBackColor = true;
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
+            // 
+            // btn_prev
+            // 
+            this.btn_prev.Location = new System.Drawing.Point(761, 1054);
+            this.btn_prev.Name = "btn_prev";
+            this.btn_prev.Size = new System.Drawing.Size(135, 48);
+            this.btn_prev.TabIndex = 31;
+            this.btn_prev.Text = "<";
+            this.btn_prev.UseVisualStyleBackColor = true;
+            this.btn_prev.Click += new System.EventHandler(this.btn_prev_Click);
+            // 
             // ChooseStudentForm
             // 
             this.AcceptButton = this.btn_ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1762, 1081);
+            this.ClientSize = new System.Drawing.Size(2130, 1124);
+            this.Controls.Add(this.lbl_PageNumber);
+            this.Controls.Add(this.btn_next);
+            this.Controls.Add(this.btn_prev);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.txt_search);
             this.Controls.Add(this.stgv);
@@ -127,5 +161,8 @@
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.DataGridView stgv;
         private System.Windows.Forms.Button btn_ok;
+        private System.Windows.Forms.Label lbl_PageNumber;
+        private System.Windows.Forms.Button btn_next;
+        private System.Windows.Forms.Button btn_prev;
     }
 }

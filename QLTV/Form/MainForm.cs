@@ -7,6 +7,7 @@ namespace QLTV
     {
         private Role? _role;
         public static string UserName;
+        private bool _isClosed = false; //prevent double messagebox 
 
         public MainForm(string userName, Role role)
         {
@@ -15,8 +16,10 @@ namespace QLTV
             _role = role;
             InitializeComponent();
             if (_role != Role.Admin)
+            {
                 btn_generate_user.Hide();
-            btn_updateAuthor.Hide();
+                btn_userManager.Hide();
+            }
             ShowMainLayout();
         }
 
@@ -31,7 +34,9 @@ namespace QLTV
 
             if (result == DialogResult.Yes)
             {
+                _isClosed = true;
                 Application.Exit();
+
             }
         }
 
@@ -94,14 +99,14 @@ namespace QLTV
         }
         private void ShowAuthorUpdateLayout()
         {
-            if (!panelForChange.Controls.Contains(AuthorUpdateLayout.Instance))
+            if (!panelForChange.Controls.Contains(UserListLayout.Instance))
             {
-                panelForChange.Controls.Add(AuthorUpdateLayout.Instance);
-                AuthorUpdateLayout.Instance.Dock = DockStyle.Fill;
+                panelForChange.Controls.Add(UserListLayout.Instance);
+                UserListLayout.Instance.Dock = DockStyle.Fill;
 
 
             }
-            AuthorUpdateLayout.Instance.BringToFront();
+            UserListLayout.Instance.BringToFront();
         }
         private void ShowIssueBookLayout()
         {
@@ -137,5 +142,21 @@ namespace QLTV
             ReturnBookLayout.Instance.BringToFront();
         }
 
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_isClosed == false)
+            {
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+            _isClosed = true;
+            Application.Exit();
+
+        }
     }
 }

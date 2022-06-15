@@ -76,26 +76,26 @@
             this.delete_r_menu,
             this.refresh_r_menu});
             this.contextMenuStrip.Name = "contextMenuStrip1";
-            this.contextMenuStrip.Size = new System.Drawing.Size(181, 118);
+            this.contextMenuStrip.Size = new System.Drawing.Size(301, 162);
             // 
             // edit_r_menu
             // 
             this.edit_r_menu.Name = "edit_r_menu";
-            this.edit_r_menu.Size = new System.Drawing.Size(180, 38);
+            this.edit_r_menu.Size = new System.Drawing.Size(300, 38);
             this.edit_r_menu.Text = "Sửa";
-            this.edit_r_menu.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
+            this.edit_r_menu.Click += new System.EventHandler(this.edit_r_menu_Click);
             // 
             // delete_r_menu
             // 
             this.delete_r_menu.Name = "delete_r_menu";
-            this.delete_r_menu.Size = new System.Drawing.Size(180, 38);
+            this.delete_r_menu.Size = new System.Drawing.Size(300, 38);
             this.delete_r_menu.Text = "Xóa";
             this.delete_r_menu.Click += new System.EventHandler(this.delete_r_menu_Click);
             // 
             // refresh_r_menu
             // 
             this.refresh_r_menu.Name = "refresh_r_menu";
-            this.refresh_r_menu.Size = new System.Drawing.Size(180, 38);
+            this.refresh_r_menu.Size = new System.Drawing.Size(300, 38);
             this.refresh_r_menu.Text = "Làm mới";
             this.refresh_r_menu.Click += new System.EventHandler(this.refresh_r_menu_Click);
             // 

@@ -19,5 +19,6 @@ namespace LibraryManagerDataAccess.Models
         public virtual Author Author { get; set; }
         public virtual ICollection<Issue> Issues { get; set; }
         public virtual ICollection<Return> Returns { get; set; }
+
     }
 }

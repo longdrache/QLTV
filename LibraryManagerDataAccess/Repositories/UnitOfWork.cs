@@ -2,6 +2,7 @@
 using LibraryManagerDataAccess.Context;
 using LibraryManagerDataAccess.Models;
 using System;
+using System.Data.Entity;
 
 namespace LibraryManagerDataAccess.Repositories
 {
@@ -15,6 +16,7 @@ namespace LibraryManagerDataAccess.Repositories
         private Repository<Return> returnRepository = null;
         private Repository<Student> studentRepository = null;
         private Repository<User> userRepository = null;
+        private DbContextTransaction m_ContextTransaction = null;
         public UnitOfWork()
         {
             m_Context = new LibraryManagerContext();
@@ -25,7 +27,19 @@ namespace LibraryManagerDataAccess.Repositories
 
             m_Context.SaveChanges();
         }
+        //public void BeginTransaction()
+        //{
 
+        //        m_ContextTransaction = m_Context.Database.BeginTransaction();
+        //}
+        //public void Commit()
+        //{
+        //    m_ContextTransaction.Commit();
+        //}
+        //public void Rollback()
+        //{
+        //    m_ContextTransaction.Rollback();
+        //}
         public Repository<Author> AuthorRepository
         {
             get

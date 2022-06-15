@@ -70,6 +70,9 @@
       <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -134,11 +137,11 @@
     <Compile Include="Form\Book\AddBookForm.Designer.cs">
       <DependentUpon>AddBookForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AuthorUpdateLayout.cs">
+    <Compile Include="Layout\UserListLayout.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AuthorUpdateLayout.Designer.cs">
-      <DependentUpon>AuthorUpdateLayout.cs</DependentUpon>
+    <Compile Include="Layout\UserListLayout.Designer.cs">
+      <DependentUpon>UserListLayout.cs</DependentUpon>
     </Compile>
     <Compile Include="Layout\BookUpdateLayout.cs">
       <SubType>UserControl</SubType>
@@ -243,8 +246,8 @@
     <EmbeddedResource Include="Form\Book\AddBookForm.resx">
       <DependentUpon>AddBookForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AuthorUpdateLayout.resx">
-      <DependentUpon>AuthorUpdateLayout.cs</DependentUpon>
+    <EmbeddedResource Include="Layout\UserListLayout.resx">
+      <DependentUpon>UserListLayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Book\RecoverBookForm.resx">
       <DependentUpon>RecoverBookForm.cs</DependentUpon>

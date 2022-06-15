@@ -1,9 +1,13 @@
 ﻿using LibraryManagerBussiness.Common;
 using LibraryManagerBussiness.Exception;
 using LibraryManagerBussiness.Models;
+using LibraryManagerBussiness.VOs;
 using LibraryManagerDataAccess.Models;
 using LibraryManagerDataAccess.Repositories;
+using PagedList;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace LibraryManagerBussiness
 {
@@ -32,7 +36,7 @@ namespace LibraryManagerBussiness
                     {
                         throw new InvalidAccountAccessException("Tên đăng nhập hoặc mật khẩu không hợp lệ!");
                     }
-                    r = user.role;
+                    r = user.Role;
                 }
 
                 s = true;
@@ -69,7 +73,7 @@ namespace LibraryManagerBussiness
                     User user = new User();
 
                     user.UserName = model.UserName;
-                    user.role = IsAdmin ? Role.Admin : Role.Staff;
+                    user.Role = IsAdmin ? Role.Admin : Role.Staff;
                     user.SecurityStamp = SaltGenerator.GetSaltString();
                     user.PasswordHash = HashComputer.GetPasswordHashAndSalt(model.Password + user.SecurityStamp);
                     uow.UserRepository.Add(user);
@@ -88,6 +92,24 @@ namespace LibraryManagerBussiness
                 s = false;
             }
             return s;
+        }
+        public IPagedList<UserVO> GetSearchPageList(string keyword, int pageNumber = 1, int pageSize = 15)
+        {
+            IList<UserVO> users;
+            using (UnitOfWork uow = new UnitOfWork())
+            {
+                IEnumerable<User> list = uow.UserRepository.GetAll(user => user.UserName.Contains(keyword) && user.Role != Role.Admin).ToList();
+                IEnumerable<UserVO> userConvert = from user in list
+                                                  select new UserVO
+                                                  {
+                                                      UserName = user.UserName,
+                                                      UserId = user.Id,
+                                                      Role = user.Role
+                                                  };
+                users = userConvert.ToList();
+            }
+            return users.ToPagedList(pageNumber, pageSize);
+
         }
     }
 }

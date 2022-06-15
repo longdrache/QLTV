@@ -37,6 +37,7 @@
             // bookgv
             // 
             this.bookgv.AccessibleRole = System.Windows.Forms.AccessibleRole.OutlineButton;
+            this.bookgv.AllowUserToAddRows = false;
             this.bookgv.AllowUserToDeleteRows = false;
             this.bookgv.AllowUserToOrderColumns = true;
             this.bookgv.AllowUserToResizeColumns = false;
@@ -68,7 +69,6 @@
             this.bookgv.Name = "bookgv";
             this.bookgv.ReadOnly = true;
             this.bookgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            this.bookgv.RowHeadersVisible = false;
             this.bookgv.RowHeadersWidth = 82;
             this.bookgv.RowTemplate.Height = 50;
             this.bookgv.RowTemplate.ReadOnly = true;

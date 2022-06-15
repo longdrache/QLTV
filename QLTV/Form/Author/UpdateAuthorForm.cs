@@ -20,10 +20,7 @@ namespace QLTV
             author_list.ValueMember = "AuthorId";
         }
 
-        private void aToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void add_menu_Click(object sender, EventArgs e)
         {
@@ -78,6 +75,13 @@ namespace QLTV
         {
             new RecoverAuthorForm().ShowDialog();
 
+        }
+
+        private void edit_r_menu_Click(object sender, EventArgs e)
+        {
+            int index = author_list.SelectedIndex;
+            if (index > -1)
+                new ChangeNameAuthorForm(Convert.ToInt32(author_list.SelectedValue)).ShowDialog();
         }
     }
 }

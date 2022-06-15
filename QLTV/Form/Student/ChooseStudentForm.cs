@@ -1,7 +1,9 @@
 ﻿using LibraryManagerBussiness;
 using LibraryManagerBussiness.VOs;
+using PagedList;
 using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 namespace QLTV.Student
 {
@@ -9,6 +11,8 @@ namespace QLTV.Student
     {
         private StudentBUS _studentBUS;
         private DataTable m_DataTable;
+        private IPagedList<StudentVO> studentPageList;
+        int pageNumber = 1;
         public GenerateStudentVO ChosenStudent { get; set; }
         public ChooseStudentForm()
         {
@@ -18,22 +22,33 @@ namespace QLTV.Student
 
         private void ChoseStudentForm_Load(object sender, EventArgs e)
         {
-
-            m_DataTable = _studentBUS.GetAllStudents().ToDataTable();
-
+            GetDataStudent(true);
 
 
-            m_DataTable.Columns[0].ColumnName = "MSSV";
-            m_DataTable.Columns[1].ColumnName = "Họ và tên";
-            m_DataTable.Columns[2].ColumnName = "Ngày sinh";
-            m_DataTable.Columns[3].ColumnName = "Giới tính";
-            m_DataTable.Columns[4].ColumnName = "Khoa";
-            m_DataTable.Columns[5].ColumnName = "Tình trạng";
+        }
+        private void GetDataStudent(bool isStart = false)
+        {
+            if (isStart)
+                pageNumber = 1;
 
-            stgv.DataSource = m_DataTable;
+            studentPageList = _studentBUS.GetSearchPageAllStudents(txt_search.Text);
+            btn_prev.Enabled = studentPageList.HasPreviousPage;
+            btn_next.Enabled = studentPageList.HasNextPage;
+            lbl_PageNumber.Text = String.Format("Page {0}/{1}", pageNumber, studentPageList.PageCount);
+            stgv.DataSource = studentPageList.ToList();
+            SetHeaderAndFormat();
+        }
+        private void SetHeaderAndFormat()
+        {
+            stgv.Columns[0].HeaderText = "MSSV";
+            stgv.Columns[1].HeaderText = "Họ và tên";
+            stgv.Columns[2].HeaderText = "Ngày sinh";
+            stgv.Columns[3].HeaderText = "Giới tính";
+            stgv.Columns[4].HeaderText = "Khoa";
+            stgv.Columns[5].HeaderText = "Tình trạng";
+
             stgv.Columns[2].DefaultCellStyle.Format = "dd/MM/yyyy";
             stgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.DisplayedCells);
-
         }
 
         private void btn_ok_Click(object sender, EventArgs e)
@@ -56,12 +71,31 @@ namespace QLTV.Student
 
         private void txt_search_TextChanged(object sender, EventArgs e)
         {
-            stgv.DataSource = m_DataTable.SearchInAllColums(txt_search.Text, StringComparison.OrdinalIgnoreCase);
+            GetDataStudent(true);
         }
 
         private void stgv_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btn_ok.PerformClick();
+        }
+
+        private void btn_next_Click(object sender, EventArgs e)
+        {
+            if (studentPageList.HasNextPage)
+            {
+                pageNumber++;
+                GetDataStudent();
+            }
+        }
+
+        private void btn_prev_Click(object sender, EventArgs e)
+        {
+            if (studentPageList.HasPreviousPage)
+            {
+                pageNumber--;
+                GetDataStudent();
+            }
+
         }
     }
 }

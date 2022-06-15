@@ -7,7 +7,7 @@
         public string UserName { get; set; }
         public string PasswordHash { get; set; }
         public string SecurityStamp { get; set; }
-        public Role role { get; set; }
+        public Role Role { get; set; }
 
 
     }

@@ -1,4 +1,6 @@
-﻿namespace LibraryManagerBussiness.Common
+﻿using System.Transactions;
+
+namespace LibraryManagerBussiness.Common
 {
     static class Utility
     {
@@ -16,6 +18,10 @@
             char[] chars = new char[bytes.Length / sizeof(char)];
             System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
             return new string(chars);
+        }
+        public static TransactionScope GetTransactionScope()
+        {
+            return new TransactionScope(TransactionScopeOption.Required, new TransactionOptions() { IsolationLevel = IsolationLevel.ReadCommitted });
         }
     }
 }

@@ -36,7 +36,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txt_bookName = new System.Windows.Forms.TextBox();
             this.txt_Isbn = new System.Windows.Forms.TextBox();
-            this.txt_edition = new System.Windows.Forms.ComboBox();
+            this.cb_edition = new System.Windows.Forms.ComboBox();
             this.cb_author = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -117,14 +117,13 @@
             this.txt_Isbn.Size = new System.Drawing.Size(278, 47);
             this.txt_Isbn.TabIndex = 6;
             // 
-            // txt_edition
+            // cb_edition
             // 
-            this.txt_edition.AllowDrop = true;
-            this.txt_edition.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.txt_edition.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.txt_edition.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.txt_edition.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.txt_edition.Items.AddRange(new object[] {
+            this.cb_edition.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cb_edition.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cb_edition.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.cb_edition.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.cb_edition.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -145,11 +144,11 @@
             "18",
             "19",
             "20"});
-            this.txt_edition.Location = new System.Drawing.Point(184, 317);
-            this.txt_edition.Margin = new System.Windows.Forms.Padding(5);
-            this.txt_edition.Name = "txt_edition";
-            this.txt_edition.Size = new System.Drawing.Size(199, 47);
-            this.txt_edition.TabIndex = 7;
+            this.cb_edition.Location = new System.Drawing.Point(184, 317);
+            this.cb_edition.Margin = new System.Windows.Forms.Padding(5);
+            this.cb_edition.Name = "cb_edition";
+            this.cb_edition.Size = new System.Drawing.Size(199, 47);
+            this.cb_edition.TabIndex = 7;
             // 
             // cb_author
             // 
@@ -221,7 +220,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.cb_author);
-            this.Controls.Add(this.txt_edition);
+            this.Controls.Add(this.cb_edition);
             this.Controls.Add(this.txt_Isbn);
             this.Controls.Add(this.txt_bookName);
             this.Controls.Add(this.label5);
@@ -256,7 +255,7 @@
         private System.Windows.Forms.ComboBox cb_author;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox txt_edition;
+        private System.Windows.Forms.ComboBox cb_edition;
         private System.Windows.Forms.Label header;
         private System.Windows.Forms.RichTextBox rtxt_desc;
         private System.Windows.Forms.Label label6;

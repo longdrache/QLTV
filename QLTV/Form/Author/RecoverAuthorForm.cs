@@ -28,13 +28,17 @@ namespace QLTV
                 btn.Text = "Khôi phục";
                 btn.UseColumnTextForButtonValue = true;
                 bookgv.Columns.Add(btn);
-
+                bookgv.Columns[0].HeaderText = "Mã tác giả";
+                bookgv.Columns[1].HeaderText = "Tên tác giả";
                 bookgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                bookgv.Columns[0].Width = 200;
+                bookgv.RowHeadersWidth = 25;
+
             }
             else
             {
                 this.Close();
-                MessageBox.Show("Danh sách rỗng", "Xem sách đã mượn", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Danh sách rỗng", "Xem danh sách khôi phục", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }
@@ -51,21 +55,15 @@ namespace QLTV
                 if (isAddSuc)
                 {
 
-                    MessageBox.Show("Thêm tác giả thành công!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Khôi phục  tác giả thành công!", "Khôi phục", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
 
                 }
                 else
                 {
-                    MessageBox.Show("Thêm tác giả thất bại!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Khôi phục tác giả thất bại!", "Khôi phục", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show(err, "Lý do", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-
-            }
-            else
-            {
-
             }
         }
     }

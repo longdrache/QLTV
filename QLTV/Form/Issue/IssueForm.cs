@@ -48,9 +48,22 @@ namespace QLTV.Issue
 
         private void btn_issue_Click(object sender, EventArgs e)
         {
-            AddIssue();
-        }
+            if (IsSafeForAdd())
+            {
+                AddIssue();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng điền đủ thông tin cho mượn", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
+        }
+        private bool IsSafeForAdd()
+        {
+            if (txt_bookName.Text.Length == 0) return false;
+            if (txt_studentId.Text.Length == 0) return false;
+            return true;
+        }
         private void AddIssue()
         {
             int studentId = Convert.ToInt32(txt_studentId.Text);
@@ -69,12 +82,12 @@ namespace QLTV.Issue
             if (IsAddSuc)
             {
 
-                MessageBox.Show("Thêm tác giả thành công!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cho mượn thành công!", "Cho mượn", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
             {
-                MessageBox.Show("Thêm tác giả thất bại!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cho mươn thất bại!", "Cho mượn", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBox.Show(err, "Lý do", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

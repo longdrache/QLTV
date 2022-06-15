@@ -35,7 +35,7 @@
             this.btn_update_book = new System.Windows.Forms.Button();
             this.btn_issueBook = new System.Windows.Forms.Button();
             this.btn_getBooksFromStudent = new System.Windows.Forms.Button();
-            this.btn_updateAuthor = new System.Windows.Forms.Button();
+            this.btn_userManager = new System.Windows.Forms.Button();
             this.btn_generate_user = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_exit = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_update_book);
             this.flowLayoutPanel1.Controls.Add(this.btn_issueBook);
             this.flowLayoutPanel1.Controls.Add(this.btn_getBooksFromStudent);
-            this.flowLayoutPanel1.Controls.Add(this.btn_updateAuthor);
+            this.flowLayoutPanel1.Controls.Add(this.btn_userManager);
             this.flowLayoutPanel1.Controls.Add(this.btn_generate_user);
             this.flowLayoutPanel1.Controls.Add(this.btn_logout);
             this.flowLayoutPanel1.Controls.Add(this.btn_exit);
@@ -118,16 +118,16 @@
             this.btn_getBooksFromStudent.UseVisualStyleBackColor = true;
             this.btn_getBooksFromStudent.Click += new System.EventHandler(this.btn_getBooksFromStudent_Click);
             // 
-            // btn_updateAuthor
+            // btn_userManager
             // 
-            this.btn_updateAuthor.Location = new System.Drawing.Point(3, 703);
-            this.btn_updateAuthor.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.btn_updateAuthor.Name = "btn_updateAuthor";
-            this.btn_updateAuthor.Size = new System.Drawing.Size(262, 70);
-            this.btn_updateAuthor.TabIndex = 5;
-            this.btn_updateAuthor.Text = "Cập nhật tác giả";
-            this.btn_updateAuthor.UseVisualStyleBackColor = true;
-            this.btn_updateAuthor.Click += new System.EventHandler(this.btn_updateAuthor_Click);
+            this.btn_userManager.Location = new System.Drawing.Point(3, 703);
+            this.btn_userManager.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.btn_userManager.Name = "btn_userManager";
+            this.btn_userManager.Size = new System.Drawing.Size(262, 70);
+            this.btn_userManager.TabIndex = 5;
+            this.btn_userManager.Text = "Danh sách tài khoản";
+            this.btn_userManager.UseVisualStyleBackColor = true;
+            this.btn_userManager.Click += new System.EventHandler(this.btn_updateAuthor_Click);
             // 
             // btn_generate_user
             // 
@@ -184,6 +184,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -203,7 +204,7 @@
         private System.Windows.Forms.Button btn_issueBook;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btn_getBooksFromStudent;
-        private System.Windows.Forms.Button btn_updateAuthor;
+        private System.Windows.Forms.Button btn_userManager;
         private System.Windows.Forms.Button btn_generate_user;
         private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.Button btn_exit;

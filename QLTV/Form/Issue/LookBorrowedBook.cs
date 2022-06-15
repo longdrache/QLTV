@@ -61,13 +61,13 @@ namespace QLTV.Issue
                 if (isAddSuc)
                 {
 
-                    MessageBox.Show("Thêm tác giả thành công!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Trả thành công!", "Trả sách", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
 
                 }
                 else
                 {
-                    MessageBox.Show("Thêm tác giả thất bại!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Trả sách thất bại!", "Trả sách", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show(err, "Lý do", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

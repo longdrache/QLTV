@@ -14,15 +14,12 @@ namespace QLTV
             InitializeComponent();
             _bookBUS = new BookBUS();
             _authorBUS = new AuthorBUS();
-
-
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
             if (IsSafeForAdd())
                 AddBook();
-
         }
 
         private void AddBook()
@@ -33,19 +30,18 @@ namespace QLTV
             book.ISBN = txt_Isbn.Text;
             book.AuthorId = Convert.ToInt32(cb_author.SelectedValue);
             book.Description = rtxt_desc.Text.Trim();
-            book.Edition = Convert.ToInt32(txt_edition.Text);
+            book.Edition = Convert.ToInt32(cb_edition.Text);
             bool IsAddSuc = _bookBUS.AddBook(ref err, book);
 
             if (IsAddSuc)
             {
-
-                MessageBox.Show("Thêm tác giả thành công!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm sách thành công!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
 
             }
             else
             {
-                MessageBox.Show("Thêm tác giả thất bại!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Thêm sách  thất bại!", "Thêm", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MessageBox.Show(err, "Lý do", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -54,17 +50,20 @@ namespace QLTV
         {
             if (txt_bookName.Text.Trim() == string.Empty)
             {
+                MessageBox.Show("Tên không được để trống!", "Tên sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (txt_edition.Text == string.Empty)
+            if (!Char.IsNumber(cb_edition.Text,0))
             {
+                MessageBox.Show("Giá trị không hợp lệ", "Tái bản", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
+             
             }
-            if (cb_author.Text == string.Empty)
+            if (cb_author.SelectedValue == null)
             {
+                MessageBox.Show("Giá trị không hợp lệ!", "Tác giả", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-
             return true;
         }
         private void GetAuthor()
